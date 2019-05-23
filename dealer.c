@@ -124,7 +124,7 @@ int main (int argc, char **argv)
 	}
 
 	printf("\nCreated %d processes.\n", num_of_trials);
-	// print out the percentages of success and failure to stdout and the output fiel
+	// print out the percentages of success and failure to stdout and the output file
 	if (num_of_trials != 0)
 	{
 		printf("Success - %d%%\n", ((num_of_success * 100)/num_of_trials));
