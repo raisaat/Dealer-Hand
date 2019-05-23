@@ -49,7 +49,7 @@ int main (int argc, char **argv)
 		}
 	}
 
-	// check whether the exactly 7 command line arguments are provided if in verbose mode, or if exactly 6 arguments are provided otherwise
+	// check whether exactly 7 command line arguments are provided if in verbose mode, or if exactly 6 arguments are provided otherwise
 	if ((verbose && argc != 7) || (!verbose && argc != 6))
 		error_handler();
 
