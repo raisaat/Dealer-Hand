@@ -1,3 +1,5 @@
+// RAISAAT ATIFA RASHID
+
 #include <stdio.h>
 #include <gsl/gsl_rng.h>
 #include <string.h>
