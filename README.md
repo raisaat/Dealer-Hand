@@ -22,7 +22,8 @@ Dealer was run with 1000 trials per percentage p, starting with a percentage of 
  * ./dealer -p 10 -o books.bin 1000
  * ./dealer -p 20 -o books.bin 1000
  * ./dealer -p 30 -o books.bin 1000
- * ...
+ ...
+
 The resulting file (books.bin) was used by the pitboss program for analysis.
 
 **pitboss:**
