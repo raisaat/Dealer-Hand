@@ -35,9 +35,9 @@ The pitboss takes two command-line arguments, a percentage, p, and a binary file
 
 The pitboss program was run with the books.bin file from the dealer for each percentage, p, from 10 - 90 (inclusive) in order to find out how accurate the dealer and the hand are in determining the percentage of success for a given p. It was found that the percentage of success for each p was very close to the value of p, as expected.
 
-### Building the programs:
+### Building the programs
 
-The Makefile is used to build the programs. Go to the directory where the programs and the Makefile are saved, and type the following command to build the program:
+The Makefile available in the repository is used to build the programs. Go to the directory where the programs and the Makefile are saved, and type the following command to build the program:
  * make
  
  Once the programs are built, they will be ready to run.
