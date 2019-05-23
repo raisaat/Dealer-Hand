@@ -1,5 +1,7 @@
 # Dealer-Hand
 
+Takes a percentage as a command-line argument and returns success or failure based on that percentage. There is a *hand*, a *dealer* and a *pitboss*. The hand returns success or failure based on the percentage specified by using a random number generator, the dealer runs a number of simulations (specified by the user) for that percentage by spawning a child process for each simulation and prints the results to the console and to a file specified by the user. The pitboss takes a percentage, p, and a file's name from the user and finds out all occurrences of p in that file to determine the total percentage of success and the total percentage of failure for that p.
+
 ### Program Details
 
 **hand:**
@@ -16,7 +18,7 @@ The dealer uses getopt() to parse the 4 command-line arguments: \<-p percentage\
   * ./dealer -p 50 -o books.bin 1009
   * ./dealer -p 34 -o books.bin -v 200
 
-After parsing the arguments, the dealer spawns num_of_trials child processes and each child executes the hand using the "execl" command. The dealer uses the wait() function to wait for each child to finish executing. When each child process finishes executing, the dealer uses it's exit status (1 or 0) to determine whether it returned success (1) or failure (0). While it is looping through num_of_trials child processes, it accumulates the number of successful child processes and the number of failed child processes for compting the percentage of successful child processes and the percentage of failed child processes. It then prints the statistics to the file in the following format: \<percentage p\>\<num_of_trials\>\<percentage of success\>\<percentage of failure\>\<new line\>.
+After parsing the arguments, the dealer spawns num_of_trials child processes and each child executes the hand using the "execl" command. The dealer uses the wait() function to wait for each child to finish executing. When each child process finishes executing, the dealer uses it's exit status (1 or 0) to determine whether it returned success (1) or failure (0). While it is looping through num_of_trials child processes, it accumulates the number of "success" child processes and the number of "failure" child processes for computing the percentage of "success" child processes and the percentage of "fail" child processes. It then prints the statistics to the file in the following format: \<percentage p\>\<num_of_trials\>\<percentage of success\>\<percentage of failure\>\<new line\>.
 
 Dealer was run with 1000 trials per percentage p, starting with a percentage of 10 and incrementing by 10 until a 90 is reached for a total of 9 trial runs and 9x1000 simulations. The following commands were used:
  * ./dealer -p 10 -o books.bin 1000
@@ -28,7 +30,14 @@ The resulting file (named books.bin) was used by the pitboss program for analysi
 
 **pitboss:**
 
-The pitboss takes two command-line arguments, a percentage, p, and a binary file name. The binary file contains a set of perecentages (p), each followed by the number of trial runs, the percentage of success and the percentage of failure for that p, formatted in the following manner: \<percentage p\>\<num_of_trials\>\<percentage of success\>\<percentage of failure\>\<new line\>. The user types in a percentage, p, to look for in the binary file. The program finds all the lines containing that p and accumulates the number of trials, as well as calculates and accumulates the total number of success and the total number of failure for that p from the percentages of success and failure for that p, which are extracted from those lines. It computes the total percentage of success from the total number of success and the total number of trial runs, as well as the total percentage of failure from the total number of failure and the total number of trial runs for that p. Finally, it prints p, the total number of trials found for that p, the percentage of success and the percentage of failure for that p. The following command is an example of running the pitboss program:
+The pitboss takes two command-line arguments, a percentage, p, and a binary file name. The binary file contains a set of perecentages (p), each followed by the number of trial runs, the percentage of success and the percentage of failure for that p, formatted in the following manner: \<percentage p\>\<num_of_trials\>\<percentage of success\>\<percentage of failure\>\<new line\>. The user types in a percentage, p, to look for in the binary file. The program finds all the lines containing that p and accumulates the number of trials, as well as calculates and accumulates the total number of successes and the total number of failures for that p from the percentages of success and failure for that p, which are extracted from those lines. It computes the total percentage of success from the total number of successes and the total number of trial runs, as well as the total percentage of failure from the total number of failures and the total number of trial runs for that p. Finally, it prints p, the total number of trials found for that p, the percentage of success and the percentage of failure for that p. The following command is an example of running the pitboss program:
  * ./piboss -p 50 books.bin
 
-The pitboss program was run with the books.bin file from the dealer for each percentage, p, from 10 - 90 (inclusive) in order to find out how accurate the dealer and the hand are in determining the percentage of success for a given p. It was found that the percentage of success for each p was very close to the value of p as expected.
+The pitboss program was run with the books.bin file from the dealer for each percentage, p, from 10 - 90 (inclusive) in order to find out how accurate the dealer and the hand are in determining the percentage of success for a given p. It was found that the percentage of success for each p was very close to the value of p, as expected.
+
+### Building the programs:
+
+The Makefile is used to build the programs. Go to the directory where the programs and the Makefile are saved, and type the following command to build the program:
+ * make
+ 
+ Once the programs are built, they will be ready to run.
