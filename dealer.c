@@ -1,3 +1,5 @@
+// RAISAAT ATIFA RASHID
+
 #include <stdio.h>
 #include <pthread.h>
 #include <stdlib.h>
