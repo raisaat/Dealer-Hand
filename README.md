@@ -1,6 +1,6 @@
 # Dealer-Hand
 
-Takes a percentage as a command-line argument and returns success or failure based on that percentage. There is a *hand*, a *dealer* and a *pitboss*. The hand returns success or failure based on the percentage specified by the user by implementing a random number generator, the dealer runs a number of simulations (specified by the user) for that percentage by spawning a child process for each simulation and prints the results to the console and to a file specified by the user. The pitboss takes a percentage, p, and a file's name from the user and finds out all occurrences of p in that file to determine the total percentage of success and the total percentage of failure for that p.
+Takes a percentage as a command-line argument and returns success or failure based on that percentage. There is a *hand*, a *dealer* and a *pitboss*. The hand returns success or failure based on the percentage specified by the user by implementing a random number generator, the dealer runs a number of simulations (also specified by the user) for that percentage by spawning a child process for each simulation and prints the results to the console and to a file specified by the user. The pitboss takes a percentage, p, and a file's name from the user and finds out all occurrences of p in that file to determine the total percentage of success and the total percentage of failure for that p.
 
 ### Program Details
 
